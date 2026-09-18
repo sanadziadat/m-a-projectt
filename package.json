@@ -1,0 +1,11 @@
+{
+  "name": "strategic-rationale-diagnostic",
+  "version": "1.0.0",
+  "description": "Client-side diagnostic for the strategic rationale phase of an M&A deal.",
+  "private": true,
+  "scripts": {
+    "test": "node tests/scoring.test.js",
+    "start": "npx --yes serve ."
+  },
+  "license": "MIT"
+}

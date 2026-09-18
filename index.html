@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strategic Rationale Diagnostic</title>
+  <meta name="description" content="A client-side diagnostic for the strategic rationale phase of an M&A deal. Rates how well-supported and coherent the rationale is across six dimensions, flags dealbreakers, and compares candidate deals side by side.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f3a5f'/%3E%3Cpath d='M8 22V12l4 5 4-5v10M19 12h5M19 17h5M19 22h5' stroke='%23fff' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle deal list" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <div class="brand-title">Strategic Rationale Diagnostic</div>
+        <div class="brand-sub">M&amp;A · rationale phase</div>
+      </div>
+    </div>
+    <nav class="topnav" aria-label="Views">
+      <button class="nav-btn" data-view="deal" id="navDeal">Diagnostic</button>
+      <button class="nav-btn" data-view="compare" id="navCompare">Compare</button>
+      <button class="nav-btn" data-view="about" id="navAbout">Method</button>
+    </nav>
+    <div class="topbar-actions">
+      <button class="btn btn-ghost" id="exportBtn" title="Download all deals as a JSON backup">Export</button>
+      <button class="btn btn-ghost" id="importBtn" title="Restore deals from a JSON backup">Import</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Candidate deals">
+      <div class="sidebar-head">
+        <h2>Candidate deals</h2>
+        <button class="btn btn-primary btn-sm" id="newDealBtn">+ New deal</button>
+      </div>
+      <ul class="deal-list" id="dealList"></ul>
+      <div class="sidebar-foot">
+        <div class="storage-note" id="storageNote">Data is stored in this browser only. Use Export to back up or move it.</div>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <main class="main" id="main" tabindex="-1"></main>
+  </div>
+
+  <div class="modal-root" id="modalRoot" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/dimensions.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
